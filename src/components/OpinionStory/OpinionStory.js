@@ -21,6 +21,7 @@ const Wrapper = styled.article`
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
+  position: relative;
 
   @media ${QUERIES.tabletOnly} {
     display: block;
@@ -33,7 +34,9 @@ const Avatar = styled.img`
   height: 48px;
   border-radius: 50%;
   object-fit: cover;
-  margin-left: 21px;
+  /* position: absolute;
+  top: 0;
+  right: 0; */
 
   @media ${QUERIES.tabletOnly} {
     margin-left: revert;

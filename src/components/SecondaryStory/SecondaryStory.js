@@ -55,7 +55,7 @@ const Abstract = styled.p`
   font-size: 1rem;
   white-space: pre-wrap;
 
-  @media ${QUERIES.tabletOnly} {
+  @media ${QUERIES.tabletAndUp} {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;

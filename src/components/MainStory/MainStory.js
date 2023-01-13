@@ -19,6 +19,11 @@ const MainStory = ({ id, title, image, location, abstract, ...delegated }) => {
 
 const Wrapper = styled.article`
   color: var(--color-gray-900);
+
+  @media ${QUERIES.tabletAndUp} {
+    padding-right: 16px;
+    /* border-right: 1px solid var(--color-gray-300); */
+  }
 `;
 
 const Image = styled.img`
@@ -43,7 +48,7 @@ const Abstract = styled.p`
   -webkit-line-clamp: 8;
   overflow: hidden;
 
-  @media ${QUERIES.tabletAndUp} {
+  @media ${QUERIES.tabletOnly} {
     -webkit-line-clamp: 16;
   }
 `;

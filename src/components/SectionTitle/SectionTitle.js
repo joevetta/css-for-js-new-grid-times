@@ -1,15 +1,15 @@
-import React from 'react';
+import React from "react";
 
-import styled from 'styled-components/macro';
+import styled from "styled-components/macro";
+import { QUERIES } from "../../constants";
+import MainStoryGrid from "../MainStoryGrid/MainStoryGrid";
 
 const SectionTitle = ({ children, cornerLink }) => {
   return (
     <Wrapper>
       <Title>{children}</Title>
       {cornerLink && (
-        <CornerLink href={cornerLink.href}>
-          {cornerLink.content}
-        </CornerLink>
+        <CornerLink href={cornerLink.href}>{cornerLink.content}</CornerLink>
       )}
     </Wrapper>
   );
