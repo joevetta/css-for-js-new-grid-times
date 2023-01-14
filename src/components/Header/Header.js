@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { Columns, Menu, Search, User } from "react-feather";
+import { Menu, Search, User } from "react-feather";
 
 import { QUERIES } from "../../constants";
 
@@ -29,25 +29,20 @@ const Header = () => {
         </Row>
       </SuperHeader>
       <MainHeader>
+        <DesktopActionGroup>
+          <button>
+            <Search size={24} />
+          </button>
+          <button>
+            <Menu size={24} />
+          </button>
+        </DesktopActionGroup>
         <Logo />
+        <SubscribeWrapper>
+          <Button>Subscribe</Button>
+          <SubLink href="/">Already a subscriber?</SubLink>
+        </SubscribeWrapper>
       </MainHeader>
-      <DesktopHeader>
-        <Row>
-          <ActionGroup>
-            <button>
-              <Search size={24} />
-            </button>
-            <button>
-              <Menu size={24} />
-            </button>
-          </ActionGroup>
-          <Logo />
-          <SubscriptionGroup>
-            <Button>Subscribe</Button>
-            <a href="#">Already a subscriber?</a>
-          </SubscriptionGroup>
-        </Row>
-      </DesktopHeader>
     </header>
   );
 };
@@ -57,7 +52,7 @@ const SuperHeader = styled.div`
   background: var(--color-gray-900);
   color: white;
 
-  @media ${QUERIES.desktopAndUp} {
+  @media ${QUERIES.laptopAndUp} {
     display: none;
   }
 `;
@@ -80,6 +75,35 @@ const ActionGroup = styled.div`
   }
 `;
 
+const DesktopActionGroup = styled(ActionGroup)`
+  display: none;
+
+  @media ${QUERIES.laptopAndUp} {
+    display: flex;
+  }
+`;
+
+const SubscribeWrapper = styled.div`
+  display: none;
+
+  @media ${QUERIES.laptopAndUp} {
+    display: revert;
+    position: relative;
+    justify-self: end;
+  }
+`;
+
+const SubLink = styled.a`
+  position: absolute;
+  width: 100%;
+  margin-top: 8px;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--color-gray-900);
+  font-style: italic;
+  text-decoration: underline;
+`;
+
 const MainHeader = styled(MaxWidthWrapper)`
   display: flex;
   align-items: center;
@@ -87,30 +111,20 @@ const MainHeader = styled(MaxWidthWrapper)`
   margin-top: 32px;
   margin-bottom: 48px;
 
-  @media ${QUERIES.desktopAndUp} {
-    display: none;
+  @media ${QUERIES.tabletAndUp} {
+    margin-top: 48px;
+    margin-bottom: 72px;
   }
-`;
 
-const DesktopHeader = styled.div`
-  display: none;
-
-  @media ${QUERIES.desktopAndUp} {
-    display: block;
+  @media ${QUERIES.laptopAndUp} {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    justify-content: revert;
+    justify-items: start;
     margin-top: 16px;
-    margin-bottom: 81px;
+    margin-bottom: 72px;
   }
 `;
 
-const SubscriptionGroup = styled(ActionGroup)`
-  flex-direction: column;
-  gap: 8px;
-  justify-content: flex-end;
-  align-items: center;
-
-  & > a {
-    font-style: italic;
-    font-size: ${14 / 16}rem;
-  }
-`;
 export default Header;
