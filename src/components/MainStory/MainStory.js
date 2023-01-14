@@ -22,7 +22,6 @@ const Wrapper = styled.article`
 
   @media ${QUERIES.tabletAndUp} {
     padding-right: 16px;
-    /* border-right: 1px solid var(--color-gray-300); */
   }
 `;
 

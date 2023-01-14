@@ -27,11 +27,11 @@ const MainStoryGrid = () => {
 
       <OpinionSection>
         <SectionTitle>Opinion</SectionTitle>
-        <StoryList>
+        <OpinionStoryList>
           {OPINION_STORIES.map((story, index) => (
             <OpinionStory key={story.id} {...story} />
           ))}
-        </StoryList>
+        </OpinionStoryList>
       </OpinionSection>
 
       <AdvertisementSection>
@@ -52,7 +52,7 @@ const Wrapper = styled.div`
   margin-bottom: 48px;
 
   @media ${QUERIES.tabletOnly} {
-    grid-template-columns: 1fr 250px;
+    grid-template-columns: 1fr 266px;
     grid-template-areas:
       "main-story secondary-stories"
       "advertisement advertisement"
@@ -83,7 +83,7 @@ const SecondaryStorySection = styled.section`
   grid-area: secondary-stories;
 
   @media ${QUERIES.tabletAndUp} {
-    padding: 0px 16px;
+    padding-left: 16px;
   }
 `;
 
@@ -113,17 +113,6 @@ const OpinionSection = styled.section`
 
   @media ${QUERIES.tabletOnly} {
     padding: 24px;
-
-    & ${StoryList} {
-      display: flex;
-      flex-direction: row;
-      flex: 1;
-      gap: 32px;
-    }
-    & ${StoryList} > * {
-      border-bottom: revert;
-      flex: 1;
-    }
   }
 
   @media ${QUERIES.tabletAndUp} {
@@ -132,10 +121,25 @@ const OpinionSection = styled.section`
 
   @media ${QUERIES.laptopAndUp} {
     border-left: 1px solid var(--color-gray-300);
-    & ${StoryList} {
-      margin-top: -1rem;
-      padding-bottom: 0px;
+  }
+`;
+
+const OpinionStoryList = styled(StoryList)`
+  @media ${QUERIES.tabletOnly} {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    gap: 32px;
+
+    & > * {
+      border-bottom: revert;
+      flex: 1;
     }
+  }
+
+  @media ${QUERIES.laptopAndUp} {
+    margin-top: -1rem;
+    padding-bottom: 0px;
   }
 `;
 
