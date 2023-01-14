@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
+
 import { QUERIES } from "../../constants";
 
 const MainStory = ({ id, title, image, location, abstract, ...delegated }) => {
@@ -19,10 +20,6 @@ const MainStory = ({ id, title, image, location, abstract, ...delegated }) => {
 
 const Wrapper = styled.article`
   color: var(--color-gray-900);
-
-  @media ${QUERIES.tabletAndUp} {
-    padding-right: 16px;
-  }
 `;
 
 const Image = styled.img`
@@ -45,10 +42,14 @@ const Abstract = styled.p`
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 8;
+  /* Necessary for line-clamping */
   overflow: hidden;
 
-  @media ${QUERIES.tabletOnly} {
+  @media ${QUERIES.tabletAndUp} {
     -webkit-line-clamp: 16;
+  }
+  @media ${QUERIES.laptopAndUp} {
+    -webkit-line-clamp: 10;
   }
 `;
 

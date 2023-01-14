@@ -1,8 +1,6 @@
 import React from "react";
 
 import styled from "styled-components/macro";
-import { QUERIES } from "../../constants";
-import MainStoryGrid from "../MainStoryGrid/MainStoryGrid";
 
 const SectionTitle = ({ children, cornerLink }) => {
   return (

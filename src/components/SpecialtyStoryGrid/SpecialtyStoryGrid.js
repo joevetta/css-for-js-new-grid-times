@@ -6,7 +6,6 @@ import { MARKET_DATA, SPORTS_STORIES } from "../../data";
 import MarketCard from "../MarketCard";
 import SectionTitle from "../SectionTitle";
 import MiniStory from "../MiniStory";
-import { QUERIES } from "../../constants";
 
 const SpecialtyStoryGrid = () => {
   return (
